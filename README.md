@@ -1,2 +1,2 @@
-# hello-world
+# mushroom
 tutorial repository
