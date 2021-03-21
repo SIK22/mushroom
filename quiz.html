@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <title>이건 무슨 버섯?!</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+<script language="javascript">
+var delay=15; //시간설정
+var correctAnswers=new Array("c","d");  //정답
+
+var q_num=1;
+var timer;
+var layer;
+var clock=delay;
+var score=0;
+
+function show_question(){
+	if (layer=eval("document.all.question"+q_num)){
+		layer.style.display="inline";
+		document.all.timeLeft.innerHTML=clock;
+		hide_question();
+	} else {
+		document.all.timeLeft.innerHTML=0;
+		document.all.quizScore.innerHTML=(q_num-1)+"문제중 "+score+"개를 맞췄습니다.";
+		document.all.quizScore.style.display="inline";
+	}
+}
+
+function hide_question(){
+	if (clock>0) {
+		document.all.timeLeft.innerHTML=clock;
+		clock--;
+		timer=setTimeout("hide_question()",1000);
+	} else {
+		clearTimeout(timer);
+		document.all.answerBoard.innerHTML=" ";
+		clock=delay;
+		layer.style.display="none";
+		q_num++;
+		show_question();
+	}
+}
+
+function check_answer(answer){
+	if (correctAnswers[q_num-1]==answer){
+		score++;
+		document.all.answerBoard.innerHTML="<font color=blue><b>정답입니다.</b></font>";
+	} else {
+		document.all.answerBoard.innerHTML="<font color=red><b>땡! 틀렸습니다.</b></font>";
+	}
+	clock=0;
+	clearTimeout(timer);
+	timer=setTimeout("hide_question()",700);
+}
+
+window.onload=show_question;
+</script>
+      </head>
+
+    <body style="background: url(iPhone-Mushroom-Wallpapers.jpg)">
+      <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+        <a class="navbar-brand" href="https://sik22.github.io/mushroom/index.html" style="color:red; font-size:24px;">※야생버섯은 눈으로만 즐겨주세요!※</a>
+          <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/classification.html"> 버섯분석
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/notice.html">안전산행수칙
+              </a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/quiz.html">도전버섯퀴즈퀴즈</a>
+                <span class="sr-only">(current)</span>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/contact.html">Contect Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+       
+        제한시간 : <B><span id="timeLeft"></span></B> 초<br>
+<br>
+<div id="answerBoard"> </div>
+<br>
+
+<div id="question1" style="display:none">
+	<b>1. 독버섯이 아닌것은?</b><br>
+	<a href="javascript:void(0)" onclick="check_answer('a')" style="color:#3CB371;">a) <img src="gaenari.jpg" id="mushgif" style="width:150px; height:auto;">개나리광대버섯</a><br>
+    <a href="javascript:void(0)" onclick="check_answer('b')" style="color:#3CB371;">b) <img src="gaeamm.jpg" id="mushgif" style="width:150px; height:auto;">갈색미치광이버섯</a><br>
+    <a href="javascript:void(0)" onclick="check_answer('c')" style="color:#3CB371;">c) <img src="brown.jpg" id="mushgif" style="width:150px; height:auto;">개암버섯</a><br>
+    <a href="javascript:void(0)" onclick="check_answer('d')" style="color:#3CB371;">d) <img src="yellow.jpg" id="mushgif" style="width:150px; height:auto;">노란다발버섯</a><br>
+    <div style="text-align: left;"><img src="mush.gif" id="mushgif" style="width:150px; height:auto;"></div>
+</div>
+
+<div id="question2" style="display:none">
+<b>2. 독버섯이 아닌것은?</b><br>
+<a href="javascript:void(0)" onclick="check_answer('a')" style="color:#3CB371;">a) <img src="Ramaria.png" id="mushgif" style="width:150px; height:auto;">노란싸리버섯</a><br>
+<a href="javascript:void(0)" onclick="check_answer('b')" style="color:#3CB371;">b) <img src="red.jpg" id="mushgif" style="width:150px; height:auto;">붉은싸리버섯</a><br>
+<a href="javascript:void(0)" onclick="check_answer('c')" style="color:#3CB371;">c) <img src="yellow2.jpg" id="mushgif" style="width:150px; height:auto;">노란꼭지버섯</a><br>
+<a href="javascript:void(0)" onclick="check_answer('d')" style="color:#3CB371;">d) <img src="egg.jpg" id="mushgif" style="width:150px; height:auto;">달걀버섯</a><br>
+    <div style="text-align: left;"><img src="mush.gif" id="mushgif" style="width:150px; height:auto;"></div>
+</div>
+
+
+
+<div id="quizScore" style="display:none">
+</div>
+        
+<script scr="https://github.com/SIK22/mushroom/blob/main/img_resize.js"></script>
+
+    
+</body>
+    <!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+</html>
