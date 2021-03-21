@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <title>이건 무슨 버섯?!</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+      </head>
+
+    <body style="background: url(iPhone-Mushroom-Wallpapers.jpg)">
+      <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+        <a class="navbar-brand" href="https://sik22.github.io/mushroom/index.html" style="color:red; font-size:24px;">※야생버섯은 눈으로만 즐겨주세요!※</a>
+          <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/classification.html"> 버섯분석
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/notice.html">안전산행수칙</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/quiz.html">도전버섯퀴즈퀴즈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/contact.html">Contect Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+        <section class="section">
+            <div><h1 class="title">'오늘'의 버섯 감별기</h1></div>
+            <!-- <div><h2 class="subtitle">어떤 버섯일까요?</h2></div> -->
+        </section>
+
+        <script
+            class="jsbin"
+            src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"
+        ></script>
+        <div class="container file-upload" onclick="init()">
+            <div class="image-upload-wrap">
+                <input
+                    class="file-upload-input"
+                    type="file"
+                    onchange="readURL(this);"
+                    accept="image/*"
+                />
+                <div class="drag-text">
+                    <img src="img_212908.png" class="mt-5 pt-5 upload" alt="upload-image" style="width:100px; height:150px;">
+                    <h3 class="mb-5 pb-5 pt-4 upload-text">
+                        버섯 사진을 찍어서
+                        <span style = "display:block;"> 업로드해보세요!
+                        </span>
+                    </h3>
+                </div>
+            </div>
+            <div class="file-upload-content" style="opacity:1.0;">
+                <img class="file-upload-image" id="mush-image" src="#" alt="your image" style="opacity:1.0;"></div></div>
+
+                <div class="image-title-wrap" style="text-align: center; margin-top: 15px;">
+                  <button type="button" id = "KISTI" onclick="predict()">뭔지 알아보아요!
+
+                  </button>
+                  <button type="button" onclick="removeUpload()" class="remove-image">
+                  다시 해보실래요?
+
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="webcam-container"></div>
+        <div style="text-align: center;"><img src="mush.gif" id="mushgif" style="width:150px; height:auto;"></div>
+        <div id="label-container", style="text-align: center; background-color: #ffff; font-size: 40px;"></div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script
+            src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"
+        ></script>
+        <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.3.1/dist/tf.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+        <script>
+            function readURL(input) {
+                if (input.files && input.files[0]) {
+                    var reader = new FileReader();
+                    reader.onload = function (e) {
+                        $('.image-upload-wrap').hide();
+                        $('.file-upload-image').attr('src', e.target.result);
+                        $('.file-upload-content').show();
+                        $('.image-title').html(input.files[0].name);
+                    };
+                    reader.readAsDataURL(input.files[0]);
+                } else {
+                    removeUpload();
+                }
+            }
+
+            function removeUpload() {
+              document.getElementById('label-container').innerHTML = "";
+                $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+                $('.file-upload-content').hide();
+                $('.image-upload-wrap').show();
+            }
+            $('.image-upload-wrap').bind('dragover', function () {
+                $('.image-upload-wrap').addClass('image-dropping');
+            });
+            $('.image-upload-wrap').bind('dragleave', function () {
+                $('.image-upload-wrap').removeClass('image-dropping');
+            });
+        </script>
+        <script type="text/javascript">
+            // More API functions here:
+            // https://github.com/googlecreativelab/teachablemachine-community/tree/master/libraries/image
+            // the link to your model provided by Teachable Machine export panel
+            const URL = "https://teachablemachine.withgoogle.com/models/mb9sKrfZB/";
+            let model, webcam, labelContainer, maxPredictions;
+            // Load the image model and setup the webcam
+            async function init() {
+
+                const modelURL = URL + "model.json";
+                const metadataURL = URL + "metadata.json";
+                // load the model and metadata
+                // Refer to tmImage.loadFromFiles() in the API to support files from a file picker
+                // or files from your local hard drive
+                // Note: the pose library adds "tmImage" object to your window (window.tmImage)
+                model = await tmImage.load(modelURL, metadataURL);
+                maxPredictions = model.getTotalClasses();
+                labelContainer = document.getElementById('label-container');
+              for (let i = 0; i < maxPredictions; i++) {
+                    // and class labels
+                    labelContainer.appendChild(document.createElement('div'));
+                }
+             }
+            // run the webcam image through the image model
+            async function predict() {
+                // predict can take in an image, video or canvas html element
+                var image = document.getElementById('mush-image');
+                var my_index = 0
+
+                const prediction = await model.predict(image, false);
+                for (let i = 0; i < maxPredictions; i++) {
+                    if ( i == 0 ) {
+                        my_index = i;
+                    } else {
+                        if (prediction[i].probability > prediction[my_index].probability){
+                          my_index = i;
+                        } else{
+                          continue;
+                        }
+                    }
+
+
+                }
+                const classPrediction =
+                        prediction[my_index].className + '일 확률이 ' + prediction[my_index].probability.toFixed(2) * 100 + '% 입니다';
+                labelContainer.childNodes[my_index].innerHTML = classPrediction;
+            }
+        </script>
+        <script>
+          var resultTitle, resultExplain, resultCeleb;
+                  switch (prediction[0].className) {
+                  my_index "0":
+                      resultTitle = "개나리광대버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "1":
+                      resultTitle = "곰보버섯"
+                      resultExplain = "식용가능"
+                      resultCeleb = "비슷한 버섯"
+                      break;
+                  my_index "2":
+                      resultTitle = "노란꼭지버섯"
+                      resultExplain = ""
+                      resultCeleb = ""
+                      break;
+                  my_index "3":
+                      resultTitle = "노란다발버섯"
+                      resultExplain = ""
+                      resultCeleb = ""
+                      break;
+                  my_index "4":
+                      resultTitle = "노란싸리버섯"
+                      resultExplain = ""
+                      resultCeleb = ""
+                      break;
+                  my_index "5":
+                      resultTitle = "노루궁뎅이버섯"
+                      resultExplain = "식용가능"
+                      resultCeleb = "비슷한 버섯"
+                          break;
+                  my_index "6":
+                      resultTitle = "달걀버섯"
+                      resultExplain = "식용가능"
+                      resultCeleb = "비슷한 버섯"
+                      break;
+                  my_index "7":
+                      resultTitle = "붉은싸리버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "8":
+                      resultTitle = "뽕나무버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "9":
+                      resultTitle = "싸리버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "10":
+                      resultTitle = "표고버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "11":
+                      resultTitle = "혈색무당버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "12":
+                      resultTitle = "개암버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "13":
+                      resultTitle = "노란난버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  my_index "14":
+                      resultTitle = "갈황색미치광이버섯"
+                      resultExplain = "주의! 독버섯입니다"
+                      resultCeleb = "비슷한 버섯:"
+                      break;
+                  default:
+                      resultTitle = "알수없음"
+                      resultExplain = ""
+                      resultCeleb = ""
+              }
+
+          }
+          var title = "<div class='" + prediction[0].className + "-mushroom-title'>" + resultTitle + "</div>"
+          var explain = "<div class='mushroom-explain pt-2'>" + resultExplain + "</div>"
+          var celeb = "<div class='" + prediction[0].className + "-mushroom-celeb pt-2 pb-2'>" + resultCeleb + "</div>"
+          $('.result-message').html(title + explain + celeb);
+
+
+          var labelTitle;
+            switch (prediction[i].className) {
+                my_index "0":
+                    labelTitle = "개나리광대버섯"
+                    break;
+                my_index "1":
+                    labelTitle = "곰보버섯"
+                    break;
+                my_index "2":
+                    labelTitle = "노란꼭지버섯"
+                    break;
+                my_index "3":
+                    labelTitle = "노란다발버섯"
+                    break;
+                my_index "4":
+                    labelTitle = "노란싸리버섯"
+                    break;
+                my_index "5":
+                    labelTitle = "노루궁뎅이버섯"
+                    break;
+                my_index "6":
+                    labelTitle = "달걀버섯"
+                    break;
+                my_index "7":
+                    labelTitle = "붉은싸리버섯"
+                    break;
+                my_index "8":
+                    labelTitle = "뽕나무버섯"
+                    break;
+                my_index "9":
+                    labelTitle = "싸리버섯"
+                    break;
+                my_index "10":
+                    resultTitle = "표고버섯"
+                    break;
+                my_index "11":
+                    labelTitle = "혈색무당버섯"
+                    break;
+                my_index "12":
+                    labelTitle = "개암버섯"
+                    break;
+                my_index "13":
+                    labelTitle = "노란난버섯"
+                    break;
+                my_index "14":
+                    labelTitle = "갈황색미치광이버섯"
+                    break;
+                default:
+                    labelTitle = "알수없음"
+                    resultExplain = ""
+            }
+              var label = "<div class='mushroom-label d-flex align-items-center'>" + labelTitle + "</div>"
+        </script>
+
+    </body>
+    <!-- Copyright (c) 2020 by Aaron Vanston (https://codepen.io/aaronvanston/pen/yNYOXR)
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+ -->
+</html>
