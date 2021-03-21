@@ -1,0 +1,288 @@
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+
+h1 {
+	text-align: center;
+	padding: 10px;
+	width: 100%
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  	border: none;
+  	border-radius: 4px;
+  	border-bottom: 4px solid #15824B;
+  	transition: all .2s ease;
+  	outline: none;
+  	text-transform: uppercase;
+  	font-weight: 700;
+}
+
+h2 {
+	margin: 0 auto;
+	text-align: center;
+	padding: 20px;
+}
+h1.title {
+  opacity: .8;
+}
+
+body {
+  font-family: 'Jeju Gothic', sans-serif;
+  background-color: #eeeeee;
+	height: 100%
+}
+
+.walk_method {
+	padding: 50px;
+		text-align: center;
+		font-size: 20px;
+}
+
+.file-upload {
+  background-color: #ffffff;
+  width: 450px;
+  height: 450px;
+  margin: auto;
+	margin-top: 50px;
+	margin-bottom: 30px;
+  padding: 20px;
+  opacity: 1;
+}
+
+.button {
+    position: absolute;
+    top: 50%;
+	text-align: center;
+}
+
+.try-again-btn{
+	text-align: center;
+	align-self:center;
+}
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: #fff;
+  background: #1FB264;
+  border: none;
+  padding: 0px;
+  border-radius: 4px;
+  border-bottom: 4px solid #15824B;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: #1AA059;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0px;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  position: relative;
+  margin-top: : 50px;
+	margin-bottom: 20px;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  border: 4px dashed #1FB264;
+
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: #1FB264;
+  border: 4px dashed #ffffff;
+}
+
+.image-title-wrap {
+	margin: auto;
+  color: #222;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: black;
+  padding: 60px 0;
+}
+
+.file-upload-image {
+  height: 383.778px;
+  width: 402px;
+  margin: auto;
+  padding: 0px;
+  opacity: 1.0;
+}
+
+.remove-image {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin:15px;
+}
+
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+button#KISTI, #hiking {
+  width: 200px;
+  margin: 0;
+  color: #fff;
+  background: #4CAF50;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #02A201;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+button#KISTI:hover {
+  background: green;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+button#KISIT:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+
+div#labelcontainer {
+  position: relative;
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-10%);
+  transform: translateY(-10%);
+}
+
+.weather {
+  color: black;
+}
+
+body {
+  height: 100vh;
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+  filter: drop-shadow(0 0 10px white);
+}
+
+@function random_range($min, $max) {
+  $rand: random();
+  $random_range: $min + floor($rand * (($max - $min) + 1));
+  @return $random_range;
+}
+
+#snow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+text-align {
+	center; color: #ffffff;
+	background: #1FB263;
+}
+
+table {
+	padding: 10px;
+	margin: auto;
+	border: 1px solid #444444;
+	border-collapse: collapse;
+}
+th, td {
+	border: 1px solid #444444;
+}
+
+ul{
+   list-style:none;
+   }
+
+	 .op {
+	   width: 100%;
+	   max-height: 500%;
+	   text-align: center;
+	   position: relative;
+		 background-color: #ffffff;
+	   z-index: 1;
+		 font-size: 20px;
+	 }
+	 .op::after {
+	   width: 100%;
+	   height: 100%;
+	   content: "";
+	   background: url("iPhone-Mushroom-Wallpapers.jpg");
+	   position: absolute;
+	   top: 0;
+	   left: 0;
+	   z-index: -1;
+	   opacity: 0.4;
+	 }
+
+
+table #rank {
+	position: relative;
+	margin-top: : auto;
+	margin-bottom: auto;
+	margin-left: auto;
+	margin-right: auto;
+	width: 70%
+	top: 50%;
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+}
