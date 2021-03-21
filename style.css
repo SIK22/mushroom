@@ -34,7 +34,7 @@ body {
 .walk_method {
 	padding: 50px;
 		text-align: center;
-		font-size: 20px;
+		font-size: 17px;
 }
 
 .file-upload {
@@ -260,7 +260,7 @@ ul{
 	   position: relative;
 		 background-color: #ffffff;
 	   z-index: 1;
-		 font-size: 15px;
+		 font-size: 17px;
 	 }
 	 .op::after {
 	   width: 100%;
