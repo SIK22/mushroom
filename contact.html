@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-    <head>
+  <head>
         <!-- Required meta tags -->
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -16,86 +16,86 @@
         <link rel="stylesheet" href="./style.css" />
         <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
 
-      </head>
+        <style>
+            * {
+          box-sizing: border-box;}
 
-    <body style="background: url(iPhone-Mushroom-Wallpapers.jpg)">
-      <style>
-        * {
-  box-sizing: border-box;
-}
+        /* Style inputs */
+            input[type=text], select, textarea {
+              width: 100%;
+              padding: 12px;
+              border: 1px solid #ccc;
+              margin-top: 16px;
+              margin-bottom: 16px;
+              resize: vertical;
+            }
 
-/* Style inputs */
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
+            input[type=submit] {
+              background-color: #4CAF50;
+              color: white;
+              padding: 12px 20px;
+              border: none;
+              cursor: pointer;
+            }
 
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  cursor: pointer;
-}
+            input[type=submit]:hover {
+              background-color: #45a049;
+            }
 
-input[type=submit]:hover {
-  background-color: #45a049;
-}
+            /* Style the container/contact section */
+            .container {
+              border-radius: 5px;
+              background-color: white;
+              padding: 10px;
+              margin : 50px;
+              object-fit: contain;
+              font-size: 25px;
+              text-align:center
+            }
 
-/* Style the container/contact section */
-.container {
-  border-radius: 5px;
-  background-color: white;
-  padding: 10px;
-  margin : 50px;
-  object-fit: contain;
-  font-size: 25px;
-  text-align:center
-}
+            /* Create two columns that float next to eachother */
+            .column {
+              float: left;
+              width: 50%;
+              margin-top: 6px;
+              padding: 20px;
+            }
 
-/* Create two columns that float next to eachother */
-.column {
-  float: left;
-  width: 50%;
-  margin-top: 6px;
-  padding: 20px;
-}
+            /* Clear floats after the columns */
+            .row:after {
+              content: "";
+              display: table;
+              clear: both;
+            }
 
-/* Clear floats after the columns */
-.row:after {
-  content: "";
-  display: table;
-  clear: both;
-}
+            button{
+              width: 200px;
+              margin: 20px;
+              color: #fff;
+              background: #4CAF50;
+              border: none;
+              padding: 10px;
+              border-radius: 4px;
+              border-bottom: 4px solid #02A201;
+              transition: all .2s ease;
+              outline: none;
+              text-transform: uppercase;
+              font-weight: 700;
+            }
 
-button{
-  width: 200px;
-  margin: 20px;
-  color: #fff;
-  background: #4CAF50;
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
-  border-bottom: 4px solid #02A201;
-  transition: all .2s ease;
-  outline: none;
-  text-transform: uppercase;
-  font-weight: 700;
-}
+            /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+            @media screen and (max-width: 600px) {
+              .column, input[type=submit] {
+                width: 100%;
+                margin-top: 0;
+              }
+            }
+        </style>
 
-/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-@media screen and (max-width: 600px) {
-  .column, input[type=submit] {
-    width: 100%;
-    margin-top: 0;
-  }
-}
-      </style>
-      <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+  </head>
+
+  <body style="background: url(iPhone-Mushroom-Wallpapers.jpg)">
+    <nav class="navbar navbar-expand-lg navbar-light nav-distance">
         <a class="navbar-brand" href="https://sik22.github.io/mushroom/index.html" style="color:red; font-size:24px;">※야생버섯은 눈으로만 즐겨주세요!※</a>
           <button
                 class="navbar-toggler"
@@ -128,63 +128,50 @@ button{
           </ul>
         </div>
       </nav>
-
-      <section class="section">
+    <section class="section">
           <div><h1 class="title">'오늘'의 버섯 감별기</h1></div>
           <!-- <div><h2 class="subtitle">어떤 버섯일까요?</h2></div> -->
       </section>
-
-<div class="container">
-  <div style="text-align:center">
-    <h2>궁금한 점이 있으신가요?</h2>
-    <p>문의사항을 남겨주세요!</p>
-  </div>
-  <div class="row">
-    <div class="column">
-      <img src="https://cdn.pixabay.com/photo/2014/05/21/19/14/the-question-mark-350168_960_720.png" style="max-width:320px; max-height:500px;">
-    </div>
-    <div class="column">
-      <form action="/action_page.php">
-      <form class = "gform" method="POST" data-email="jsebin115@gmail.com"
-    action="https://script.google.com/macros/s/AKfycbwhsulXxhkljrF2Y-wH0z3LSV5660Xz_K8KnpSF33-kNdjIrBuOLyErxsNd9DvTZMm8zw/exec">
-      <!-- change the form action to your script url -->
-
-      <div class="form-elements">
-        <fieldset class="pure-group">
-          <input id="name" name="name" placeholder="성함을 적어주세요" />
-        </fieldset>
-
-        <fieldset class="pure-group">
-          <textarea id="message" name="message" rows="7"
-          placeholder="무엇이 궁금하신가요?"></textarea>
-        </fieldset>
-
-        <fieldset class="pure-group">
-          <input id="email" name="email" type="email" value=""
-          required placeholder="메일주소를 적어주세요"/>
-        </fieldset>
-
+    <div class="container">
+      <div style="text-align:center">
+        <h2>궁금한 점이 있으신가요?</h2>
+        <p>문의사항을 남겨주세요!</p>
+      </div>
+      <div class="row">
+        <div class="column">
+          <img src="https://cdn.pixabay.com/photo/2014/05/21/19/14/the-question-mark-350168_960_720.png" style="max-width:320px; max-height:500px;">
+        </div>
+        <div class="column">
+          <form class = "gform" method="POST" data-email="example@email.net"
+        action="https://script.google.com/macros/s/AKfycbyLKETenlfKM1EfBx9SJn2h8pMvhZVAM9AIy7YvbMU_wHrLqzZb/exec">
+            <div class="form-elements">
+          <!-- change the form action to your script url -->
+              <fieldset class="pure-group">
+              <input id="name" name="name" placeholder="성함을 적어주세요" /></fieldset>
+              <fieldset class="pure-group">
+              <textarea id="message" name="message" rows="7"
+              placeholder="무엇이 궁금하신가요?"></textarea></fieldset>
+              <fieldset class="pure-group">
+              <input id="email" name="email" type="email" value=""
+              required placeholder="메일주소를 적어주세요"/></fieldset>
         <button class="button-success pure-button button-xlarge">
-          <i class="fa fa-paper-plane"></i>&nbsp;전송</button>
+          <i class="fa fa-paper-plane"></i>&nbsp;전송</button></div>
+          <div class="thankyou_message" style="display:none;">
+            <h2 style="margin-top:70px;color:MediumSeaGreen;">문의 감사합니다♡<br><br>
+              확인 후 답장드릴게요</h2>
+          </div>
+        </form>
       </div>
-
+        </div>
+      </div>
       <!-- Customise the Thankyou Message People See when they submit the form: -->
-      <div class="thankyou_message" style="display:none;">
-        <h2><em>문의</em> 감사합니다!
-          확인 즉시 회신드리겠습니다!</h2>
-      </div>
 
-    </form>
 
     <!-- Submit the Form to Google Using "AJAX" -->
     <script data-cfasync="false" src="form-submission-handler.js"></script>
+    <script data-cfasync="false" type="text/javascript"
+src="https://cdn.rawgit.com/dwyl/html-form-send-email-via-google-script-without-server/master/form-submission-handler.js"></script>
   <!-- END -->
-
-
-      </form>
-    </div>
-  </div>
-</div>
 
     </body>
   </html>
