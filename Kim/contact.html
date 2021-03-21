@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+        <!-- Bootstrap CSS -->
+        <link
+            rel="stylesheet"
+            href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous"
+        />
+        <title>이건 무슨 버섯?!</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+
+      </head>
+
+    <body style="background: url(iPhone-Mushroom-Wallpapers.jpg)">
+      <style>
+        * {
+  box-sizing: border-box;
+}
+
+/* Style inputs */
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+/* Style the container/contact section */
+.container {
+  border-radius: 5px;
+  background-color: white;
+  padding: 10px;
+  margin : 50px;
+  object-fit: contain;
+  font-size: 25px;
+  text-align:center
+}
+
+/* Create two columns that float next to eachother */
+.column {
+  float: left;
+  width: 50%;
+  margin-top: 6px;
+  padding: 20px;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
+@media screen and (max-width: 600px) {
+  .column, input[type=submit] {
+    width: 100%;
+    margin-top: 0;
+  }
+}
+      </style>
+      <nav class="navbar navbar-expand-lg navbar-light nav-distance">
+        <a class="navbar-brand" href="#" style="color:red; font-size:24px;">※야생버섯은 눈으로만 즐겨주세요!※</a>
+          <button
+                class="navbar-toggler"
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarNav"
+                aria-controls="navbarNav"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item active">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/index.html"> Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/notice.html">안전산행수칙</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="https://sik22.github.io/mushroom/quiz.html">도전버섯퀴즈퀴즈</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="htps://sik22.github.io/mushroom/contact.html">Contect Us</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <section class="section">
+          <div><h1 class="title">'오늘'의 버섯 감별기</h1></div>
+          <!-- <div><h2 class="subtitle">어떤 버섯일까요?</h2></div> -->
+      </section>
+
+      <div class="container">
+  <div style="text-align:center">
+    <h2>궁금한 점이 있으신가요?</h2>
+    <p>문의사항을 남겨주세요!</p>
+  </div>
+  <div class="row">
+    <div class="column">
+      <img src="https://cdn.pixabay.com/photo/2014/05/21/19/14/the-question-mark-350168_960_720.png" style="max-width:320px; max-height:500px;">
+    </div>
+    <div class="column">
+      <form action="/action_page.php">
+        <label for="fname">작성자</label>
+        <input type="text" id="fname" name="yourname" placeholder="성함을 적어주세요">
+        <label for="subject">내용</label>
+        <textarea id="subject" name="subject" placeholder="무엇이 궁금하신가요?" style="height:170px"></textarea>
+        <input type="submit" value="전송">
+      </form>
+    </div>
+  </div>
+</div>
+
+    </body>
+  </html>
